@@ -1,0 +1,198 @@
+.widget {
+  position: fixed;
+  bottom: var(--space-8);
+  right: var(--space-8);
+  z-index: calc(var(--z-overlay) - 1);
+  cursor: none;
+  animation: slideUp 0.3s var(--transition-spring) both;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Desktop ────────────────────────────────── */
+.desktop {
+  display: flex;
+  flex-direction: column;
+  background: rgba(10, 10, 20, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--color-accent-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  width: 240px;
+  transition: border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.widget:hover .desktop {
+  border-color: rgba(124, 106, 245, 0.6);
+  transform: translateY(-2px);
+}
+
+.termBar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 8px 12px;
+  background: rgba(42, 41, 47, 0.5);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.dots { display: flex; gap: 5px; }
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.dotR { background: var(--color-terminal-error); }
+.dotY { background: var(--color-terminal-warn); }
+.dotG { background: var(--color-terminal-ok); }
+
+.termLabel {
+  flex: 1;
+  text-align: right;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--color-text-dim);
+  letter-spacing: 0.04em;
+}
+
+.termBody {
+  padding: var(--space-4) var(--space-4) var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.termLine {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+}
+
+.prompt {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-bold);
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+.termSelected {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-bold);
+  color: var(--color-text-primary);
+}
+
+.termItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding-left: var(--space-4);
+}
+
+.termDash {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-dim);
+  flex-shrink: 0;
+}
+
+.termItemName {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-accent-light);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.termFooter {
+  padding: var(--space-2) var(--space-4) var(--space-3);
+  border-top: 1px solid var(--color-border);
+}
+
+.openHint {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--color-text-dim);
+  letter-spacing: 0.04em;
+}
+
+/* ── Mobile ─────────────────────────────────── */
+.mobile { display: none; }
+
+@media (max-width: 767px) {
+  .widget {
+    bottom: var(--space-5);
+    right: var(--space-4);
+    left: var(--space-4);
+  }
+
+  .desktop { display: none; }
+
+  .mobile {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    justify-content: center;
+    background: rgba(31, 31, 37, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--color-border-strong);
+    border-radius: var(--radius-full);
+    padding: var(--space-3) var(--space-5);
+  }
+
+  .avatars { display: flex; }
+
+  .avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    border: 2px solid var(--color-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-mono);
+    font-size: 9px;
+    font-weight: var(--weight-bold);
+    color: #fff;
+    margin-left: -6px;
+  }
+
+  .avatar:first-child { margin-left: 0; }
+
+  .avatarOverflow {
+    background: var(--color-bg-container-high);
+    color: var(--color-text-muted);
+  }
+
+  .divider {
+    width: 1px;
+    height: 16px;
+    background: var(--color-border-strong);
+    flex-shrink: 0;
+  }
+
+  .compareLabel {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-bold);
+    letter-spacing: 0.06em;
+    color: var(--color-accent-light);
+    text-transform: uppercase;
+  }
+
+  .arrow {
+    color: var(--color-accent);
+  }
+}

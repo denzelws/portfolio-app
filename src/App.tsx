@@ -1,6 +1,7 @@
 import { useTerminal } from "@/hooks/useTerminal";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useCursor } from "@/hooks/useCursor";
+import { useCart } from "@/hooks/useCart";
 
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -8,18 +9,19 @@ import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/sections/Hero";
 import { Skills } from "@/components/sections/Skills";
 import { Projects } from "@/components/sections/Projects";
+import { ProjectLibrary } from "@/components/sections/ProjectLibrary";
 
 import { TerminalOverlay } from "@/components/terminal/TerminalOverlay";
+import { CartWidget } from "@/components/ui/CartWidget";
 
 const PREVIEW_LINE_COUNT = 8;
 
 export default function App() {
   const terminal = useTerminal();
   const { dotRef, ringRef } = useCursor();
+  const cart = useCart();
 
   useScrollReveal();
-
-  const previewLines = terminal.lines.slice(0, PREVIEW_LINE_COUNT);
 
   return (
     <>
@@ -29,9 +31,17 @@ export default function App() {
       <Navbar onTerminalOpen={terminal.open} />
 
       <main>
-        <Hero previewLines={previewLines} onTerminalOpen={terminal.open} />
+        <Hero
+          previewLines={terminal.lines.slice(0, PREVIEW_LINE_COUNT)}
+          onTerminalOpen={terminal.open}
+        />
         <Skills />
         <Projects />
+        <ProjectLibrary
+          isInCart={cart.isInCart}
+          onAdd={cart.add}
+          onRemove={cart.remove}
+        />
       </main>
 
       <Footer />
@@ -45,6 +55,12 @@ export default function App() {
         onClose={terminal.close}
         bodyRef={terminal.bodyRef}
         inputRef={terminal.inputRef}
+      />
+
+      <CartWidget
+        items={cart.items}
+        onRemove={cart.remove}
+        onClear={cart.clear}
       />
     </>
   );

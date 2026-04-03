@@ -4,7 +4,7 @@ export function Footer() {
   return (
     <footer className={styles.footer} id="contato">
       <span className={styles.copy}>
-        © 2025 ~/seuNome • Built with Precision
+        © 2025 ~/denzel • Built with Precision
       </span>
       <nav className={styles.links} aria-label="Links sociais">
         <a

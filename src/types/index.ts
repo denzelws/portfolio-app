@@ -53,6 +53,22 @@ export interface TerminalLine {
   content: string;
 }
 
+export interface LibraryProject {
+  id: string;
+  number: string;
+  title: string;
+  description: string;
+  stack: string[];
+  category: string;
+  href: string;
+  image?: string;
+}
+
+export interface CartItem {
+  id: string;
+  title: string;
+}
+
 /**
  * Uma função de comando recebe os argumentos
  * e retorna as linhas de output a serem exibidas.
