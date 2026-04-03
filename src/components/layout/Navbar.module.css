@@ -1,0 +1,104 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-navbar);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-6) var(--space-10);
+  background: rgba(10, 10, 15, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.logo {
+  font-family: var(--font-mono);
+  font-size: var(--text-md);
+  font-weight: var(--weight-bold);
+  color: var(--color-text-primary);
+  letter-spacing: -0.01em;
+  cursor: none;
+}
+
+.links {
+  display: flex;
+  gap: var(--space-8);
+  list-style: none;
+}
+
+.link {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  letter-spacing: 0.02em;
+  transition: color var(--transition-fast);
+  cursor: none;
+}
+
+.link:hover {
+  color: var(--color-text-primary);
+}
+
+.active {
+  color: var(--color-accent-light);
+}
+
+.active::before {
+  content: '• ';
+  color: var(--color-accent);
+}
+
+.terminalBtn {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--color-accent-light);
+  background: var(--color-accent-subtle);
+  border: 1px solid var(--color-accent-border);
+  padding: var(--space-2) var(--space-5);
+  border-radius: var(--radius-full);
+  cursor: none;
+  letter-spacing: 0.02em;
+  transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.terminalBtn:hover {
+  background: rgba(124, 106, 245, 0.22);
+  border-color: var(--color-accent-border-hover);
+  color: #fff;
+}
+
+@media (max-width: 600px) {
+  .links {
+    display: none;
+  }
+
+  .nav {
+    padding: var(--space-4) var(--space-6);
+  }
+}
+
+.accent {
+  color: var(--color-accent-light); 
+}
+
+.cursor {
+  color: var(--color-accent-light);
+  animation: blink 1s step-end infinite; 
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.logo:hover {
+  color: var(--color-text-primary);
+  text-shadow: 0 0 8px rgba(124, 106, 245, 0.4);
+  transition: all var(--transition-fast);
+}

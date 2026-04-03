@@ -1,0 +1,110 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+/* ─────────────────────────────────────────────
+   REGRA DE USO:
+   • .text-display-*  → Syne — títulos, hero, nomes de projeto
+   • .text-mono-*     → JetBrains Mono — tudo funcional:
+                        nav, labels, tags, terminal, botões
+───────────────────────────────────────────── */
+
+/* Hero title — "Digital Architect" */
+.text-display-hero {
+  font-family: var(--font-display);
+  font-size: clamp(72px, 12vw, 140px);
+  font-weight: var(--weight-black);
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  color: var(--color-text-primary);
+}
+
+/* Nome de projeto nos cards */
+.text-display-project {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: var(--weight-black);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+  transition: color var(--transition-base);
+}
+
+/* Heading de seção */
+.text-display-section {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: var(--weight-bold);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+}
+
+/* ── Mono (JetBrains Mono) ──────────────────── */
+
+/* Logo da navbar */
+.text-mono-logo {
+  font-family: var(--font-mono);
+  font-size: var(--text-md);
+  font-weight: var(--weight-bold);
+  letter-spacing: -0.01em;
+  color: var(--color-text-primary);
+}
+
+/* Nav links */
+.text-mono-nav {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-regular);
+  letter-spacing: 0.02em;
+  color: var(--color-text-muted);
+  transition: color var(--transition-fast);
+}
+
+.text-mono-nav:hover,
+.text-mono-nav.is-active {
+  color: var(--color-text-primary);
+}
+
+/* Descrição — hero e cards */
+.text-mono-body {
+  font-family: var(--font-mono);
+  font-size: var(--text-md);
+  font-weight: var(--weight-regular);
+  line-height: 1.75;
+  color: var(--color-text-muted);
+}
+
+/* Labels e tags pequenas */
+.text-mono-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-regular);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-dim);
+}
+
+/* Terminal — output */
+.text-mono-terminal {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-regular);
+  line-height: 1.7;
+}
+
+/* Botões */
+.text-mono-button {
+  font-family: var(--font-mono);
+  font-size: var(--text-base);
+  font-weight: var(--weight-bold);
+  letter-spacing: 0.01em;
+}
+
+/* Footer / copyright */
+.text-mono-footer {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-regular);
+  letter-spacing: 0.01em;
+  color: var(--color-text-dim);
+}
