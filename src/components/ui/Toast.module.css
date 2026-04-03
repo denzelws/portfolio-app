@@ -1,0 +1,122 @@
+.toast {
+  position: fixed;
+  bottom: var(--space-8);
+  left: var(--space-8);
+  z-index: var(--z-overlay);
+  width: 220px;
+  background: var(--color-bg-terminal);
+  border: 1px solid var(--color-accent-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+  animation: slideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.hidden {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.titlebar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 8px 12px;
+  background: rgba(42, 41, 47, 0.5);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.dots { display: flex; gap: 5px; }
+
+.dot {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.dotRed    { background: var(--color-terminal-error); cursor: none; }
+.dotYellow { background: var(--color-terminal-warn); }
+.dotGreen  { background: var(--color-terminal-ok); }
+
+.titlebarLabel {
+  flex: 1;
+  text-align: right;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--color-text-dim);
+  letter-spacing: 0.04em;
+}
+
+.body {
+  padding: var(--space-4) var(--space-4) var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.line {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-1);
+}
+
+.prompt {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-bold);
+  color: var(--color-accent);
+}
+
+.cmd {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--color-text-primary);
+}
+
+.output {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  padding-left: var(--space-4);
+}
+
+.name {
+  font-weight: var(--weight-bold);
+  color: var(--color-terminal-green);
+}
+
+.comma {
+  color: var(--color-text-muted);
+}
+
+.role {
+  color: var(--color-text-muted);
+}
+
+.muted {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-dim);
+  padding-left: var(--space-4);
+}
+
+@media (max-width: 600px) {
+  .toast {
+    bottom: var(--space-5);
+    left: var(--space-4);
+    right: var(--space-4);
+    width: auto;
+  }
+}

@@ -2,6 +2,7 @@ import { useTerminal } from "@/hooks/useTerminal";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useCursor } from "@/hooks/useCursor";
 import { useCart } from "@/hooks/useCart";
+import { useToast } from "@/hooks/useToast";
 
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -13,6 +14,7 @@ import { ProjectLibrary } from "@/components/sections/ProjectLibrary";
 
 import { TerminalOverlay } from "@/components/terminal/TerminalOverlay";
 import { CartWidget } from "@/components/ui/CartWidget";
+import { Toast } from "@/components/ui/Toast";
 
 const PREVIEW_LINE_COUNT = 8;
 
@@ -20,6 +22,7 @@ export default function App() {
   const terminal = useTerminal();
   const { dotRef, ringRef } = useCursor();
   const cart = useCart();
+  const toast = useToast();
 
   useScrollReveal();
 
@@ -62,6 +65,8 @@ export default function App() {
         onRemove={cart.remove}
         onClear={cart.clear}
       />
+
+      <Toast visible={toast.visible} onDismiss={toast.dismiss} />
     </>
   );
 }
