@@ -8,203 +8,212 @@ const out = (content: string): TerminalLine => ({
   type: "output",
   content,
 });
-
 const accent = (content: string): TerminalLine => ({
   id: id(),
   type: "accent",
   content,
 });
-
 const success = (content: string): TerminalLine => ({
   id: id(),
   type: "success",
   content,
 });
-
 const warning = (content: string): TerminalLine => ({
   id: id(),
   type: "warning",
   content,
 });
-
 const muted = (content: string): TerminalLine => ({
   id: id(),
   type: "muted",
   content,
 });
-
 const err = (content: string): TerminalLine => ({
   id: id(),
   type: "error",
   content,
 });
 
+const GITHUB_URL = "https://github.com/denzelws/telemetry-dashboard/tree/main";
+
 export const commands: Command[] = [
   {
     name: "help",
-    description: "lista todos os comandos disponíveis",
+    description: "list all available commands",
     handler: () => [
-      warning("comandos disponíveis:"),
+      warning("available commands:"),
       out(""),
-      accent("  whoami        "),
-      muted("  sobre mim e disponibilidade"),
-      accent("  ls projects/ "),
-      muted("  listar todos os projetos"),
-      accent("  cd react/    "),
-      muted("  projetos React / Next.js"),
-      accent("  cd api/      "),
-      muted("  projetos de API / Backend"),
-      accent("  cd fullstack/"),
-      muted("  projetos Full Stack"),
-      accent("  skills       "),
-      muted("  stack tecnológica completa"),
-      accent("  contato      "),
-      muted("  formas de me encontrar"),
-      accent("  clear        "),
-      muted("  limpar o terminal"),
+      out("  whoami              about me"),
+      out("  ls projects/        list projects"),
+      out("  cd telemetry/       climate monitoring system"),
+      out("  cd react/           React / Next.js projects"),
+      out("  cd api/             API / Backend projects"),
+      out("  cd fullstack/       Full Stack projects"),
+      out("  code telemetry      open telemetry on GitHub ↗"),
+      out("  skills              full tech stack"),
+      out("  contact             get in touch"),
+      out("  clear               clear terminal"),
       out(""),
-      muted("dica: tente `ls projects/` para começar."),
+      muted("tip: try 'cd telemetry/' to start."),
     ],
   },
 
   {
     name: "whoami",
-    description: "sobre mim e disponibilidade",
+    description: "about me",
     handler: () => [
       success("Denzel Washington — Full Stack Developer"),
       out(""),
-      out("  stack principal   React · Node.js · TypeScript"),
-      out("  localização       Rio de Janeiro, BR"),
-      out("  disponibilidade   aberto para projetos"),
+      out("  main stack      React · Node.js · TypeScript"),
+      out("  location        Rio de Janeiro, BR"),
+      out("  availability    open for projects in 2025"),
+      out("  english         C1 fluent"),
       out(""),
-      muted("use `contato` para falar comigo."),
+      muted("use 'contact' to reach me."),
     ],
   },
 
   {
     name: "ls",
-    description: "listar diretório de projetos",
+    description: "list directory",
     handler: (args) => {
       const path = args[0] ?? "";
-
       if (path === "projects/" || path === "projects") {
-        return [accent("react/"), accent("api/"), accent("fullstack/")];
+        return [accent("telemetry/   react/   api/   fullstack/")];
       }
-
-      return [accent("projects/"), out("status.txt"), out("README.md")];
+      return [out("projects/    status.txt    README.md")];
     },
   },
 
   {
     name: "cd",
-    description: "navegar entre diretórios de projetos",
+    description: "navigate between project directories",
     handler: (args) => {
       const dir = args[0] ?? "";
+      const key = dir.endsWith("/") ? dir : `${dir}/`;
 
       const dirs: Record<string, TerminalLine[]> = {
+        "telemetry/": [
+          muted("~/projects/telemetry-dashboard"),
+          out(""),
+          success("Intelligent Climate Monitoring System"),
+          out(""),
+          out("  arch        event-driven microservices"),
+          out("  collector   Python → fetches Open-Meteo every 10s"),
+          out("  broker      RabbitMQ → decoupling & resilience"),
+          out("  worker      Golang → high-performance queue consumer"),
+          out("  backend     NestJS · JWT · Google Gemini AI · MongoDB"),
+          out("  frontend    React · Vite · Shadcn/ui · Recharts"),
+          out("  infra       Docker · Docker Compose"),
+          out(""),
+          accent("  → 'code telemetry' to open on GitHub"),
+        ],
         "react/": [
           muted("~/projects/react"),
           out(""),
-          success("obsidian-os/"),
-          out("  Dashboard de ativos · React · TypeScript"),
-          out(""),
-          success("dashboard-analytics/"),
-          out("  Painel de dados em tempo real · Next.js"),
-          out(""),
-          success("landing-builder/"),
-          out("  Editor visual de landing pages · React"),
+          success("telemetry-frontend/  "),
+          out("Real-time dashboard · React · Vite · Shadcn/ui"),
+          success("obsidian-os/         "),
+          out("Asset management dashboard · React · TypeScript"),
         ],
         "api/": [
           muted("~/projects/api"),
           out(""),
-          success("core-engine/"),
-          out("  API e-commerce 10k req/s · Node.js · GraphQL"),
-          out(""),
-          success("auth-service/"),
-          out("  Microserviço de autenticação · JWT · Redis"),
-          out(""),
-          success("notification-hub/"),
-          out("  Sistema de notificações em tempo real · WS"),
+          success("telemetry-backend/   "),
+          out("NestJS REST API · JWT · Gemini AI · MongoDB"),
+          success("telemetry-worker/    "),
+          out("Queue consumer · Golang · AMQP"),
+          success("telemetry-collector/ "),
+          out("Data collector · Python · RabbitMQ"),
         ],
         "fullstack/": [
           muted("~/projects/fullstack"),
           out(""),
-          success("vortex-ui/"),
-          out("  Lib de componentes procedurais · WebGL"),
-          out(""),
-          success("booking-app/"),
-          out("  Sistema de agendamento completo · Next.js"),
-          out(""),
-          success("saas-starter/"),
-          out("  Boilerplate SaaS com billing · Stripe"),
+          success("telemetry-dashboard/ "),
+          out("Distributed climate monitoring · 4 languages · AI"),
         ],
       };
 
-      const key = dir.endsWith("/") ? dir : `${dir}/`;
-
       if (dirs[key]) return dirs[key];
+      if (dir === ".." || dir === "") return [muted("~/")];
+      return [err(`cd: ${dir}: directory not found`)];
+    },
+  },
 
-      if (dir === ".." || dir === "") {
-        return [muted("~/")];
+  {
+    name: "code",
+    description: "open project on GitHub",
+    handler: (args) => {
+      const project = args[0] ?? "";
+
+      const repos: Record<string, string> = {
+        telemetry: GITHUB_URL,
+        "telemetry-dashboard": GITHUB_URL,
+      };
+
+      const url = repos[project];
+
+      if (!url) {
+        return [
+          err(`code: '${project}' not found`),
+          out(""),
+          out("  available:  telemetry"),
+        ];
       }
 
-      return [err(`cd: ${dir}: diretório não encontrado`)];
+      setTimeout(() => window.open(url, "_blank", "noopener,noreferrer"), 300);
+
+      return [success(`opening ${project} on GitHub...`), accent(`  → ${url}`)];
     },
   },
 
   {
     name: "skills",
-    description: "stack tecnológica completa",
+    description: "full tech stack",
     handler: () => [
-      warning("stack tecnológica:"),
+      warning("tech stack:"),
       out(""),
       out("  frontend    React · Next.js · TypeScript · Tailwind"),
-      out("  backend     Node.js · Express · GraphQL · PostgreSQL"),
-      out("  infra       Docker · GitHub Actions · Vercel · AWS"),
-      out("  extras      WebGL · Three.js · Framer Motion"),
+      out("  backend     NestJS · Node.js · GraphQL · MongoDB"),
+      out("  other       Golang · Python · RabbitMQ · Docker"),
+      out("  infra       Docker Compose · GitHub Actions · Vercel"),
     ],
   },
 
   {
-    name: "contato",
-    description: "formas de me encontrar",
+    name: "contact",
+    description: "get in touch",
     handler: () => [
-      warning("onde me encontrar:"),
+      warning("where to find me:"),
       out(""),
-      success("  email     "),
-      out("  denzelwashingtonsantana@gmail.com"),
-      success("  github    "),
-      out("  github.com/denzelws"),
-      success("  linkedin  "),
-      out("  linkedin.com/in/dzwashington"),
+      out("  email       denzelws@email.com"),
+      out("  github      github.com/denzelws"),
+      out("  linkedin    linkedin.com/in/denzelws"),
     ],
   },
 
   {
     name: "cat",
-    description: "ler conteúdo de um arquivo",
+    description: "read file content",
     handler: (args) => {
       const file = args[0] ?? "";
-
       const files: Record<string, TerminalLine[]> = {
         "status.txt": [
-          success("disponível para novos projetos em 2025."),
-          out("foco em produtos web de alta qualidade."),
-          out("aberto a freela, contrato e posições CLT."),
+          success("available for new projects in 2025."),
+          out("focused on high-quality web products."),
+          out("open to freelance, contract and CLT positions."),
         ],
         "README.md": [
-          warning("# portfólio — Denzel Washington"),
+          warning("# portfolio — denzel washington"),
           out(""),
-          out("desenvolvedor full stack com foco em"),
-          out("interfaces elegantes e sistemas robustos."),
+          out("full stack developer focused on"),
+          out("elegant interfaces and robust systems."),
           out(""),
-          muted("use `help` para explorar este terminal."),
+          muted("use 'help' to explore this terminal."),
         ],
       };
-
       if (files[file]) return files[file];
-
-      return [err(`cat: ${file}: arquivo não encontrado`)];
+      return [err(`cat: ${file}: file not found`)];
     },
   },
 ];

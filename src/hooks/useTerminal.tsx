@@ -28,7 +28,7 @@ const WELCOME_LINES: TerminalLine[] = [
   {
     id: uid(),
     type: "muted",
-    content: "Portfolio CLI v1.0 — digite `help` para ver os comandos",
+    content: "Portfolio CLI v1.0 — type `help` to see commands",
   },
   { id: uid(), type: "output", content: "" },
   { id: uid(), type: "command", content: "whoami" },
@@ -39,7 +39,17 @@ const WELCOME_LINES: TerminalLine[] = [
   },
   { id: uid(), type: "output", content: "" },
   { id: uid(), type: "command", content: "ls projects/" },
-  { id: uid(), type: "accent", content: "react/     api/     fullstack/" },
+  {
+    id: uid(),
+    type: "accent",
+    content: "telemetry/   react/   api/   fullstack/",
+  },
+  { id: uid(), type: "output", content: "" },
+  {
+    id: uid(),
+    type: "muted",
+    content: "try 'cd telemetry/' or 'code telemetry'",
+  },
   { id: uid(), type: "output", content: "" },
 ];
 
@@ -55,9 +65,8 @@ export function useTerminal(): UseTerminalReturn {
 
   const scrollToBottom = useCallback(() => {
     requestAnimationFrame(() => {
-      if (bodyRef.current) {
+      if (bodyRef.current)
         bodyRef.current.scrollTop = bodyRef.current.scrollHeight;
-      }
     });
   }, []);
 
@@ -88,7 +97,7 @@ export function useTerminal(): UseTerminalReturn {
     setHistoryIndex(-1);
 
     if (trimmed === "clear") {
-      setLines([{ id: uid(), type: "muted", content: "terminal limpo." }]);
+      setLines([{ id: uid(), type: "muted", content: "terminal cleared." }]);
       return;
     }
 
@@ -103,7 +112,7 @@ export function useTerminal(): UseTerminalReturn {
           {
             id: uid(),
             type: "error",
-            content: `comando não encontrado: ${name} — tente \`help\``,
+            content: `command not found: ${name} — try \`help\``,
           },
         ];
 
@@ -122,7 +131,6 @@ export function useTerminal(): UseTerminalReturn {
         setInput("");
         return;
       }
-
       if (e.key === "ArrowUp") {
         e.preventDefault();
         const next = Math.min(
@@ -133,7 +141,6 @@ export function useTerminal(): UseTerminalReturn {
         setInput(commandHistory.current[next] ?? "");
         return;
       }
-
       if (e.key === "ArrowDown") {
         e.preventDefault();
         const next = Math.max(historyIndex - 1, -1);
@@ -146,7 +153,7 @@ export function useTerminal(): UseTerminalReturn {
   );
 
   const clear = useCallback(() => {
-    setLines([{ id: uid(), type: "muted", content: "terminal limpo." }]);
+    setLines([{ id: uid(), type: "muted", content: "terminal cleared." }]);
   }, []);
 
   const open = useCallback(() => {

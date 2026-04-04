@@ -1,137 +1,15 @@
-import type { Project } from "@/types";
+import { Project } from "@/types";
 
-const ObsidianArt = () => (
+const ComingSoonArt = ({ label }: { label: string }) => (
   <svg viewBox="0 0 480 270" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-    <polygon
-      points="240,30 420,240 60,240"
-      fill="none"
-      stroke="rgba(124,106,245,0.3)"
-      strokeWidth="1"
-    />
-    <polygon
-      points="240,80 380,230 100,230"
-      fill="none"
-      stroke="rgba(124,106,245,0.18)"
-      strokeWidth="1"
-    />
-    <polygon
-      points="240,130 330,220 150,220"
-      fill="none"
-      stroke="rgba(124,106,245,0.09)"
-      strokeWidth="1"
-    />
     <line
-      x1="240"
-      y1="30"
-      x2="240"
-      y2="240"
-      stroke="rgba(124,106,245,0.12)"
-      strokeWidth="0.5"
-    />
-    <line
-      x1="60"
-      y1="240"
-      x2="420"
-      y2="240"
-      stroke="rgba(124,106,245,0.12)"
-      strokeWidth="0.5"
-    />
-    <circle cx="240" cy="30" r="3" fill="rgba(124,106,245,0.7)" />
-    <circle cx="60" cy="240" r="3" fill="rgba(124,106,245,0.35)" />
-    <circle cx="420" cy="240" r="3" fill="rgba(124,106,245,0.35)" />
-  </svg>
-);
-
-const CoreEngineArt = () => (
-  <svg viewBox="0 0 480 270" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-    <rect
-      x="60"
-      y="40"
-      width="160"
-      height="190"
-      fill="none"
-      stroke="rgba(124,106,245,0.25)"
-      strokeWidth="1"
-    />
-    <rect
-      x="100"
-      y="80"
-      width="80"
-      height="110"
-      fill="none"
-      stroke="rgba(124,106,245,0.14)"
-      strokeWidth="1"
-    />
-    <rect
-      x="260"
-      y="60"
-      width="160"
-      height="150"
-      fill="none"
-      stroke="rgba(124,106,245,0.25)"
-      strokeWidth="1"
-    />
-    <line
-      x1="60"
+      x1="40"
       y1="135"
-      x2="260"
-      y2="135"
-      stroke="rgba(124,106,245,0.1)"
-      strokeWidth="0.5"
-      strokeDasharray="4,4"
-    />
-    <line
-      x1="300"
-      y1="40"
-      x2="300"
-      y2="210"
-      stroke="rgba(124,106,245,0.1)"
-      strokeWidth="0.5"
-      strokeDasharray="4,4"
-    />
-    <circle cx="140" cy="135" r="4" fill="rgba(124,106,245,0.6)" />
-    <circle cx="300" cy="135" r="4" fill="rgba(124,106,245,0.35)" />
-  </svg>
-);
-
-const VortexArt = () => (
-  <svg viewBox="0 0 480 270" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-    <circle
-      cx="240"
-      cy="135"
-      r="90"
-      fill="none"
-      stroke="rgba(124,106,245,0.25)"
-      strokeWidth="1"
-    />
-    <circle
-      cx="240"
-      cy="135"
-      r="60"
-      fill="none"
-      stroke="rgba(124,106,245,0.15)"
-      strokeWidth="1"
-    />
-    <circle
-      cx="240"
-      cy="135"
-      r="30"
-      fill="none"
-      stroke="rgba(124,106,245,0.08)"
-      strokeWidth="1"
-    />
-    <circle cx="240" cy="135" r="4" fill="rgba(124,106,245,0.8)" />
-    <circle cx="240" cy="45" r="3" fill="rgba(124,106,245,0.4)" />
-    <circle cx="330" cy="135" r="3" fill="rgba(124,106,245,0.4)" />
-    <circle cx="240" cy="225" r="3" fill="rgba(124,106,245,0.4)" />
-    <circle cx="150" cy="135" r="3" fill="rgba(124,106,245,0.4)" />
-    <line
-      x1="60"
-      y1="135"
-      x2="420"
+      x2="440"
       y2="135"
       stroke="rgba(124,106,245,0.08)"
       strokeWidth="0.5"
+      strokeDasharray="6,4"
     />
     <line
       x1="240"
@@ -140,38 +18,223 @@ const VortexArt = () => (
       y2="250"
       stroke="rgba(124,106,245,0.08)"
       strokeWidth="0.5"
+      strokeDasharray="6,4"
+    />
+    <rect
+      x="140"
+      y="90"
+      width="200"
+      height="90"
+      rx="8"
+      fill="rgba(124,106,245,0.04)"
+      stroke="rgba(124,106,245,0.18)"
+      strokeWidth="0.8"
+      strokeDasharray="5,3"
+    />
+    <text
+      x="240"
+      y="128"
+      textAnchor="middle"
+      fill="rgba(124,106,245,0.5)"
+      fontSize="11"
+      fontFamily="monospace"
+      letterSpacing="0.15em"
+    >
+      // coming soon
+    </text>
+    <text
+      x="240"
+      y="150"
+      textAnchor="middle"
+      fill="rgba(124,106,245,0.25)"
+      fontSize="10"
+      fontFamily="monospace"
+      letterSpacing="0.08em"
+    >
+      {label}
+    </text>
+  </svg>
+);
+
+const TelemetryArt = () => (
+  <svg viewBox="0 0 480 270" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+    <circle
+      cx="240"
+      cy="135"
+      r="14"
+      fill="none"
+      stroke="rgba(124,106,245,0.7)"
+      strokeWidth="1.5"
+    />
+    <circle cx="240" cy="135" r="4" fill="rgba(124,106,245,0.9)" />
+    <circle
+      cx="100"
+      cy="75"
+      r="10"
+      fill="none"
+      stroke="rgba(124,106,245,0.4)"
+      strokeWidth="1"
+    />
+    <circle cx="100" cy="75" r="3" fill="rgba(124,106,245,0.5)" />
+    <circle
+      cx="380"
+      cy="75"
+      r="10"
+      fill="none"
+      stroke="rgba(124,106,245,0.4)"
+      strokeWidth="1"
+    />
+    <circle cx="380" cy="75" r="3" fill="rgba(124,106,245,0.5)" />
+    <circle
+      cx="100"
+      cy="195"
+      r="10"
+      fill="none"
+      stroke="rgba(124,106,245,0.4)"
+      strokeWidth="1"
+    />
+    <circle cx="100" cy="195" r="3" fill="rgba(124,106,245,0.5)" />
+    <circle
+      cx="380"
+      cy="195"
+      r="10"
+      fill="none"
+      stroke="rgba(124,106,245,0.4)"
+      strokeWidth="1"
+    />
+    <circle cx="380" cy="195" r="3" fill="rgba(124,106,245,0.5)" />
+    <line
+      x1="110"
+      y1="82"
+      x2="226"
+      y2="124"
+      stroke="rgba(124,106,245,0.2)"
+      strokeWidth="0.8"
+      strokeDasharray="4,3"
+    />
+    <line
+      x1="370"
+      y1="82"
+      x2="254"
+      y2="124"
+      stroke="rgba(124,106,245,0.2)"
+      strokeWidth="0.8"
+      strokeDasharray="4,3"
+    />
+    <line
+      x1="110"
+      y1="188"
+      x2="226"
+      y2="146"
+      stroke="rgba(124,106,245,0.2)"
+      strokeWidth="0.8"
+      strokeDasharray="4,3"
+    />
+    <line
+      x1="370"
+      y1="188"
+      x2="254"
+      y2="146"
+      stroke="rgba(124,106,245,0.2)"
+      strokeWidth="0.8"
+      strokeDasharray="4,3"
+    />
+    <text
+      x="100"
+      y="58"
+      textAnchor="middle"
+      fill="rgba(124,106,245,0.35)"
+      fontSize="9"
+      fontFamily="monospace"
+    >
+      python
+    </text>
+    <text
+      x="380"
+      y="58"
+      textAnchor="middle"
+      fill="rgba(124,106,245,0.35)"
+      fontSize="9"
+      fontFamily="monospace"
+    >
+      golang
+    </text>
+    <text
+      x="100"
+      y="218"
+      textAnchor="middle"
+      fill="rgba(124,106,245,0.35)"
+      fontSize="9"
+      fontFamily="monospace"
+    >
+      nestjs
+    </text>
+    <text
+      x="380"
+      y="218"
+      textAnchor="middle"
+      fill="rgba(124,106,245,0.35)"
+      fontSize="9"
+      fontFamily="monospace"
+    >
+      react
+    </text>
+    <text
+      x="240"
+      y="160"
+      textAnchor="middle"
+      fill="rgba(124,106,245,0.5)"
+      fontSize="9"
+      fontFamily="monospace"
+    >
+      rabbitmq
+    </text>
+    <circle
+      cx="240"
+      cy="135"
+      r="22"
+      fill="none"
+      stroke="rgba(124,106,245,0.12)"
+      strokeWidth="1"
+    />
+    <circle
+      cx="240"
+      cy="135"
+      r="32"
+      fill="none"
+      stroke="rgba(124,106,245,0.06)"
+      strokeWidth="1"
     />
   </svg>
 );
 
-// ── Dataset ───────────────────────────────────
-
 export const projects: Project[] = [
   {
-    id: "obsidian-os",
-    title: "Obsidian OS",
-    tag: "// react · typescript",
+    id: "telemetry-dashboard",
+    title: "Telemetry Dashboard",
+    tag: "// react · nestjs · golang · python",
     description:
-      "Dashboard minimalista para gestão de ativos focado em investidores de alto risco. Totalmente modular.",
-    href: "#",
-    ArtComponent: ObsidianArt,
+      "Distributed climate monitoring system in real-time. Event-driven architecture with 4 languages, RabbitMQ and AI insights via Google Gemini.",
+    href: "https://github.com/denzelws/telemetry-dashboard/tree/main",
+    image: "/projects/telemetry.png",
+    ArtComponent: TelemetryArt,
   },
   {
-    id: "core-engine",
-    title: "Core Engine",
-    tag: "// node.js · graphql",
-    description:
-      "API de alto processamento para e-commerce global, lidando com mais de 10k requisições por segundo.",
-    href: "#",
-    ArtComponent: CoreEngineArt,
+    id: "coming-soon-1",
+    title: "Next project",
+    tag: "// are coming",
+    description: "Something new is being built. Stay tuned.",
+    href: "https://github.com/denzelws",
+    ArtComponent: () => <ComingSoonArt label="in development" />,
+    comingSoon: true,
   },
   {
-    id: "vortex-ui",
-    title: "Vortex UI",
-    tag: "// webgl · shaders",
-    description:
-      "Biblioteca de componentes experimentais baseada em renderização procedural e física de partículas.",
-    href: "#",
-    ArtComponent: VortexArt,
+    id: "coming-soon-2",
+    title: "Next project",
+    tag: "// are coming",
+    description: "Something new is being built. Stay tuned.",
+    href: "https://github.com/denzelws",
+    ArtComponent: () => <ComingSoonArt label="in development" />,
+    comingSoon: true,
   },
 ];

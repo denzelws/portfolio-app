@@ -1,3 +1,5 @@
+/* ProjectCard.module.css */
+
 .card {
   display: flex;
   flex-direction: column;
@@ -5,16 +7,19 @@
 }
 
 .card:hover {
+  /* Elevação via translate — sem box-shadow */
   transform: translateY(-4px);
   transition: transform var(--transition-spring);
 }
 
+/* ── Arte SVG ───────────────────────────────── */
 .art {
   aspect-ratio: 16 / 9;
   overflow: hidden;
   margin-bottom: var(--space-6);
   background: var(--color-bg-container);
 
+  /* Grayscale por padrão */
   filter: grayscale(100%);
   transition: filter var(--transition-slow);
 }
@@ -24,10 +29,12 @@
   height: 100%;
 }
 
+/* Colorida no hover do card */
 .card:hover .art {
   filter: grayscale(0%);
 }
 
+/* ── Tag de tecnologia ──────────────────────── */
 .tag {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
@@ -38,6 +45,7 @@
   margin-bottom: var(--space-3);
 }
 
+/* ── Título ─────────────────────────────────── */
 .title {
   font-family: var(--font-display);
   font-size: 28px;
@@ -53,6 +61,7 @@
   color: var(--color-accent-light);
 }
 
+/* ── Descrição ──────────────────────────────── */
 .description {
   font-family: var(--font-mono);
   font-size: var(--text-sm);
@@ -61,9 +70,11 @@
   color: var(--color-text-muted);
   margin-bottom: var(--space-5);
 
+  /* Cresce para empurrar o link para baixo */
   flex: 1;
 }
 
+/* ── Link ───────────────────────────────────── */
 .link {
   display: inline-flex;
   align-items: center;
@@ -84,6 +95,7 @@
   color: var(--color-accent-light);
 }
 
+/* ── Seta ───────────────────────────────────── */
 .arrow {
   flex-shrink: 0;
   transition: transform var(--transition-fast);
@@ -91,4 +103,35 @@
 
 .link:hover .arrow {
   transform: translate(2px, -2px);
+}
+
+.artImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  filter: grayscale(100%);
+  transition: filter var(--transition-slow);
+}
+
+.card:hover .artImage {
+  filter: grayscale(0%);
+}
+
+.artLink {
+  display: block;
+  cursor: none;
+}
+
+.comingSoon {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.comingSoon .art {
+  cursor: default;
+}
+
+.titleMuted {
+  color: var(--color-text-muted);
 }

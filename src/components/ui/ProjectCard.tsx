@@ -12,33 +12,55 @@ export function ProjectCard({
   revealDelay = 0,
   className = "",
 }: ProjectCardProps) {
-  const { title, tag, description, href, ArtComponent } = project;
+  const { title, tag, description, href, ArtComponent, image, comingSoon } =
+    project;
+
+  const handleImageClick = () => {
+    if (!comingSoon) window.open(href, "_blank", "noopener,noreferrer");
+  };
 
   return (
     <article
-      className={`reveal ${styles.card} ${className}`}
+      className={`reveal ${styles.card} ${comingSoon ? styles.comingSoon : ""} ${className}`}
       style={{ "--delay": `${revealDelay}ms` } as React.CSSProperties}
     >
-      <div className={styles.art} aria-hidden>
-        <ArtComponent />
+      <div
+        className={styles.art}
+        onClick={handleImageClick}
+        role={comingSoon ? undefined : "link"}
+        aria-label={comingSoon ? undefined : `Abrir ${title}`}
+      >
+        {image ? (
+          <img
+            src={image}
+            alt={title}
+            className={styles.artImage}
+            loading="lazy"
+            decoding="async"
+          />
+        ) : (
+          <ArtComponent />
+        )}
       </div>
 
       <p className={styles.tag}>{tag}</p>
-
-      <h3 className={styles.title}>{title}</h3>
-
+      <h3 className={`${styles.title} ${comingSoon ? styles.titleMuted : ""}`}>
+        {title}
+      </h3>
       <p className={styles.description}>{description}</p>
 
-      <a
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={styles.link}
-        aria-label={`Ver estudo de caso de ${title}`}
-      >
-        Ver Estudo de Caso
-        <ArrowIcon />
-      </a>
+      {!comingSoon && (
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.link}
+          aria-label={`Ver estudo de caso de ${title}`}
+        >
+          View Case Study
+          <ArrowIcon />
+        </a>
+      )}
     </article>
   );
 }
