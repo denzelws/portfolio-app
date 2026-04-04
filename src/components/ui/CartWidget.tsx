@@ -9,7 +9,7 @@ interface CartWidgetProps {
   onClear: () => void;
 }
 
-export function CartWidget({ items, onRemove, onClear }: CartWidgetProps) {
+export function CartWidget({ items, onRemove }: CartWidgetProps) {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   if (items.length === 0) return null;
