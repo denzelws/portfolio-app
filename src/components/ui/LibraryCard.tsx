@@ -28,7 +28,7 @@ export function LibraryCard({
       <div className={styles.body}>
         <div className={styles.meta}>
           <span className={styles.category}>
-            {project.number} / {project.category.toUpperCase()}
+            {project.number} / {(project.category || "").toUpperCase()}
           </span>
           <h3 className={styles.title}>{project.title}</h3>
           <p className={styles.description}>{project.description}</p>
