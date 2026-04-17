@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useLocale } from "@/hooks/useLocale";
 import styles from "./Toast.module.css";
 
 interface ToastProps {
@@ -7,6 +8,7 @@ interface ToastProps {
 }
 
 export function Toast({ visible, onDismiss }: ToastProps) {
+  const { t } = useLocale();
   const [rendered, setRendered] = useState(false);
 
   useEffect(() => {
@@ -32,24 +34,23 @@ export function Toast({ visible, onDismiss }: ToastProps) {
             className={`${styles.dot} ${styles.dotRed}`}
             onClick={onDismiss}
             role="button"
-            aria-label="Fechar"
+            aria-label="close"
           />
           <span className={`${styles.dot} ${styles.dotYellow}`} aria-hidden />
           <span className={`${styles.dot} ${styles.dotGreen}`} aria-hidden />
         </div>
-        <span className={styles.titlebarLabel}>intro.sh</span>
+        <span className={styles.titlebarLabel}>{t("toast.file")}</span>
       </div>
       <div className={styles.body}>
         <div className={styles.line}>
           <span className={styles.prompt}>›</span>
-          <span className={styles.cmd}>whoami</span>
+          <span className={styles.cmd}>{t("toast.cmd")}</span>
         </div>
         <div className={styles.output}>
-          <span className={styles.name}>Denzel Washington</span>
-          <span className={styles.comma}>,</span>
-          <span className={styles.role}> dev.</span>
+          <span className={styles.name}>{t("toast.name")}</span>
+          <span className={styles.comma}>{t("toast.role")}</span>
         </div>
-        <div className={styles.muted}>Não o ator.</div>
+        <div className={styles.muted}>{t("toast.muted")}</div>
       </div>
     </div>
   );

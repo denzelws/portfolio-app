@@ -1,3 +1,5 @@
+import { LanguageToggle } from "@/components/ui/LanguageToggle";
+import { useLocale } from "@/hooks/useLocale";
 import styles from "./Navbar.module.css";
 
 interface NavbarProps {
@@ -5,6 +7,7 @@ interface NavbarProps {
 }
 
 export function Navbar({ onTerminalOpen }: NavbarProps) {
+  const { t } = useLocale();
   return (
     <nav className={styles.nav}>
       <a href="/" className={styles.logo}>
@@ -12,28 +15,29 @@ export function Navbar({ onTerminalOpen }: NavbarProps) {
         D/Z
         <span className={styles.cursor}>_</span>
       </a>
-
       <ul className={styles.links}>
         <li>
           <a href="#sobre" className={styles.link}>
-            sobre
+            {t("nav.about")}
           </a>
         </li>
         <li>
           <a href="#projetos" className={`${styles.link} ${styles.active}`}>
-            projetos
+            {t("nav.projects")}
           </a>
         </li>
         <li>
           <a href="#contato" className={styles.link}>
-            contato
+            {t("nav.contact")}
           </a>
         </li>
       </ul>
-
-      <button className={styles.terminalBtn} onClick={onTerminalOpen}>
-        $ terminal
-      </button>
+      <div className={styles.actions}>
+        <LanguageToggle />
+        <button className={styles.terminalBtn} onClick={onTerminalOpen}>
+          {t("nav.terminal")}
+        </button>
+      </div>
     </nav>
   );
 }

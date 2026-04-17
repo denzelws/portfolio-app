@@ -46,7 +46,7 @@
 }
 
 .active::before {
-  content: '• ';
+  content: "• ";
   color: var(--color-accent);
 }
 
@@ -60,7 +60,10 @@
   border-radius: var(--radius-full);
   cursor: none;
   letter-spacing: 0.02em;
-  transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+  transition:
+    background var(--transition-fast),
+    border-color var(--transition-fast),
+    color var(--transition-fast);
 }
 
 .terminalBtn:hover {
@@ -79,26 +82,27 @@
   }
 }
 
-.accent {
-  color: var(--color-accent-light); 
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
 }
 
 .cursor {
   color: var(--color-accent-light);
-  animation: blink 1s step-end infinite; 
+  animation: blink 1s step-end infinite;
+}
+
+.accent {
+  color: var(--color-accent-light);
 }
 
 @keyframes blink {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
   }
   50% {
     opacity: 0;
   }
-}
-
-.logo:hover {
-  color: var(--color-text-primary);
-  text-shadow: 0 0 8px rgba(124, 106, 245, 0.4);
-  transition: all var(--transition-fast);
 }

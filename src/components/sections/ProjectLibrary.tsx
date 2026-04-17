@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { EmptyLibrary, LibraryCard } from "@/components/ui";
+import { libraryFilters, libraryProjects } from "@/data/libraryProjects";
+import { useLocale } from "@/hooks/useLocale";
 import { CartItem } from "@/types";
-import { libraryProjects, libraryFilters } from "@/data/libraryProjects";
-import { LibraryCard, EmptyLibrary } from "@/components/ui";
-import { t } from "@/i18n/i18n";
+import { useState } from "react";
 import styles from "./ProjectLibrary.module.css";
 
 interface ProjectLibraryProps {
@@ -16,29 +16,35 @@ export function ProjectLibrary({
   onAdd,
   onRemove,
 }: ProjectLibraryProps) {
+  const { t } = useLocale();
   const [activeFilter, setActiveFilter] = useState("All");
+
+  const translatedProjects = libraryProjects.map((project) => ({
+    ...project,
+    title: t(`libraryProjects.${project.id}.title`),
+    description: t(`libraryProjects.${project.id}.description`),
+    category: t(`libraryProjects.${project.id}.category`),
+  }));
 
   const filtered =
     activeFilter === "All"
-      ? libraryProjects
-      : libraryProjects.filter((p) => p.stack.includes(activeFilter));
+      ? translatedProjects
+      : translatedProjects.filter((p) => p.stack.includes(activeFilter));
 
   const handleToggle = (id: string, title: string) => {
     if (isInCart(id)) onRemove(id);
     else onAdd({ id, title });
   };
 
-  const [titleLine1, titleLine2] = t.library.title.split("\n");
-
   return (
     <section className={styles.section}>
       <div className={styles.header}>
         <h2 className={styles.title}>
-          {titleLine1}
+          {t("library.title_line1")}
           <br />
-          {titleLine2}
+          {t("library.title_line2")}
         </h2>
-        <p className={styles.subtitle}>{t.library.subtitle}</p>
+        <p className={styles.subtitle}>{t("library.subtitle")}</p>
       </div>
 
       {libraryProjects.length > 0 && (
@@ -46,9 +52,7 @@ export function ProjectLibrary({
           {libraryFilters.map((filter) => (
             <button
               key={filter}
-              className={`${styles.filterBtn} ${
-                activeFilter === filter ? styles.filterActive : ""
-              }`}
+              className={`${styles.filterBtn} ${activeFilter === filter ? styles.filterActive : ""}`}
               onClick={() => setActiveFilter(filter)}
             >
               {activeFilter === filter ? (

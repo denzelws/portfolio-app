@@ -1,0 +1,108 @@
+{
+  "nav": {
+    "about": "about",
+    "projects": "projects",
+    "contact": "contact",
+    "terminal": "$ terminal"
+  },
+  "hero": {
+    "cta_projects": "View projects",
+    "cta_explore": "$ explore"
+  },
+  "avatar": {
+    "available": "Available",
+    "role": "Full Stack Developer",
+    "stack": "React · Next.js · TypeScript · English C1"
+  },
+  "terminal": {
+    "placeholder": "type a command...",
+    "close": "close ✕",
+    "title": "portfolio terminal — zsh"
+  },
+  "library": {
+    "title_line1": "Project",
+    "title_line2": "Library",
+    "subtitle": "A curated selection of technical solutions, system architectures and visual experiments.",
+    "filters": [
+      "All",
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Node.js",
+      "GraphQL",
+      "PostgreSQL"
+    ],
+    "add": "[ ] add_to_build",
+    "added": "[x] added"
+  },
+  "libraryProjects": {
+    "example-project": {
+      "title": "Example Project",
+      "description": "A brief description of the project.",
+      "category": "Full Stack"
+    }
+  },
+  "cart": {
+    "selected_one": "1 project selected",
+    "selected_many": "{{count}} projects selected",
+    "none": "no projects selected",
+    "empty_hint": "add projects by clicking\n[ ] add_to_build on the cards below.",
+    "open_hint": "click to open ↗",
+    "compare": "compare",
+    "session": "session_v1.0",
+    "build_config": "build.config"
+  },
+  "cart_messages": {
+    "one_0": "> build.config analyzed...",
+    "one_1": "  focused selection. love that.",
+    "one_2": "  quality > quantity.",
+    "few_0": "> build.config analyzed...",
+    "few_1": "  {{count}} projects loaded.",
+    "few_2": "  stack coverage: excellent.",
+    "few_3": "  good taste. let's talk?",
+    "many_0": "> build.config analyzed...",
+    "many_1": "  {{count}} projects in the pipeline.",
+    "many_2": "  ambition detected.",
+    "many_3": "  stack coverage: full. impressive."
+  },
+  "toast": {
+    "cmd": "whoami",
+    "name": "Denzel Washington",
+    "role": ", dev.",
+    "muted": "Not the actor.",
+    "file": "intro.sh"
+  },
+  "footer": {
+    "copy": "© 2025 ~/DenzelW • Built with Precision",
+    "github": "github",
+    "linkedin": "linkedin",
+    "layers": "layers"
+  },
+  "empty_library": {
+    "title": "building in progress",
+    "subtitle": "new projects are being pushed to production.",
+    "accent": "check back soon.",
+    "cmd": "git push origin main"
+  },
+  "projects": {
+    "view_case": "View Case Study",
+    "coming_soon_title": "Next project",
+    "coming_soon_tag": "// are coming",
+    "coming_soon_desc": "Something new is being built. Stay tuned.",
+    "telemetry-dashboard": {
+      "title": "Telemetry Dashboard",
+      "tag": "// react · nestjs · golang · python",
+      "description": "Distributed climate monitoring system in real-time. Event-driven architecture with 4 languages, RabbitMQ and AI insights via Google Gemini."
+    },
+    "coming-soon-1": {
+      "title": "Next project",
+      "tag": "// are coming",
+      "description": "Something new is being built. Stay tuned."
+    },
+    "coming-soon-2": {
+      "title": "Next project",
+      "tag": "// are coming",
+      "description": "Something new is being built. Stay tuned."
+    }
+  }
+}

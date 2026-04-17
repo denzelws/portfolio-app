@@ -1,0 +1,108 @@
+{
+  "nav": {
+    "about": "sobre",
+    "projects": "projetos",
+    "contact": "contato",
+    "terminal": "$ terminal"
+  },
+  "hero": {
+    "cta_projects": "Ver projetos",
+    "cta_explore": "$ explorar"
+  },
+  "avatar": {
+    "available": "Disponível",
+    "role": "Full Stack Developer",
+    "stack": "React · Next.js · TypeScript · Inglês C1"
+  },
+  "terminal": {
+    "placeholder": "digite um comando...",
+    "close": "fechar ✕",
+    "title": "portfolio terminal — zsh"
+  },
+  "library": {
+    "title_line1": "Project",
+    "title_line2": "Library",
+    "subtitle": "Uma curadoria de soluções técnicas, arquiteturas de sistema e experimentos visuais.",
+    "filters": [
+      "All",
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Node.js",
+      "GraphQL",
+      "PostgreSQL"
+    ],
+    "add": "[ ] add_to_build",
+    "added": "[x] added"
+  },
+  "libraryProjects": {
+    "example-project": {
+      "title": "Projeto Exemplo",
+      "description": "Uma breve descrição do projeto.",
+      "category": "Full Stack"
+    }
+  },
+  "cart": {
+    "selected_one": "1 projeto selecionado",
+    "selected_many": "{{count}} projetos selecionados",
+    "none": "nenhum projeto selecionado",
+    "empty_hint": "adicione projetos clicando em\n[ ] add_to_build nos cards abaixo.",
+    "open_hint": "clique para abrir ↗",
+    "compare": "comparar",
+    "session": "session_v1.0",
+    "build_config": "build.config"
+  },
+  "cart_messages": {
+    "one_0": "> build.config analisado...",
+    "one_1": "  seleção focada. gosto disso.",
+    "one_2": "  qualidade > quantidade.",
+    "few_0": "> build.config analisado...",
+    "few_1": "  {{count}} projetos carregados.",
+    "few_2": "  stack coverage: excelente.",
+    "few_3": "  você tem bom gosto. vamos conversar?",
+    "many_0": "> build.config analisado...",
+    "many_1": "  {{count}} projetos no pipeline.",
+    "many_2": "  ambição detectada.",
+    "many_3": "  stack coverage: full. impressionante."
+  },
+  "toast": {
+    "cmd": "whoami",
+    "name": "Denzel Washington",
+    "role": ", dev.",
+    "muted": "Não o ator.",
+    "file": "intro.sh"
+  },
+  "footer": {
+    "copy": "© 2025 ~/DenzelW • Built with Precision",
+    "github": "github",
+    "linkedin": "linkedin",
+    "layers": "layers"
+  },
+  "empty_library": {
+    "title": "building in progress",
+    "subtitle": "novos projetos sendo enviados para produção.",
+    "accent": "volte em breve.",
+    "cmd": "git push origin main"
+  },
+  "projects": {
+    "view_case": "Ver Estudo de Caso",
+    "coming_soon_title": "Próximo projeto",
+    "coming_soon_tag": "// em breve",
+    "coming_soon_desc": "Algo novo está sendo construído. Fique ligado.",
+    "telemetry-dashboard": {
+      "title": "Telemetry Dashboard",
+      "tag": "// react · nestjs · golang · python",
+      "description": "Sistema distribuído de monitoramento climático em tempo real. Arquitetura orientada a eventos com 4 linguagens, RabbitMQ e insights de IA via Google Gemini."
+    },
+    "coming-soon-1": {
+      "title": "Próximo projeto",
+      "tag": "// em breve",
+      "description": "Algo novo está sendo construído. Fique ligado."
+    },
+    "coming-soon-2": {
+      "title": "Próximo projeto",
+      "tag": "// em breve",
+      "description": "Algo novo está sendo construído. Fique ligado."
+    }
+  }
+}

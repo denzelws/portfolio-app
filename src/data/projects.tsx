@@ -211,28 +211,18 @@ const TelemetryArt = () => (
 export const projects: Project[] = [
   {
     id: "telemetry-dashboard",
-    title: "Telemetry Dashboard",
-    tag: "// react · nestjs · golang · python",
-    description:
-      "Distributed climate monitoring system in real-time. Event-driven architecture with 4 languages, RabbitMQ and AI insights via Google Gemini.",
     href: "https://github.com/denzelws/telemetry-dashboard/tree/main",
     image: "/projects/telemetry.png",
     ArtComponent: TelemetryArt,
   },
   {
     id: "coming-soon-1",
-    title: "Next project",
-    tag: "// are coming",
-    description: "Something new is being built. Stay tuned.",
     href: "https://github.com/denzelws",
     ArtComponent: () => <ComingSoonArt label="in development" />,
     comingSoon: true,
   },
   {
     id: "coming-soon-2",
-    title: "Next project",
-    tag: "// are coming",
-    description: "Something new is being built. Stay tuned.",
     href: "https://github.com/denzelws",
     ArtComponent: () => <ComingSoonArt label="in development" />,
     comingSoon: true,
