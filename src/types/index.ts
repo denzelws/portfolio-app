@@ -2,15 +2,21 @@ import type { ComponentType } from "react";
 
 export interface Project {
   id: string;
+  title?: string;
+  tag?: string;
+  description?: string;
   href: string;
-  image?: string;
   ArtComponent: ComponentType;
+  image?: string;
   comingSoon?: boolean;
 }
 
 export interface LibraryProject {
   id: string;
-  number: string;
+  number?: string;
+  title?: string;
+  description?: string;
+  category?: string;
   href: string;
   stack: string[];
   image?: string;
