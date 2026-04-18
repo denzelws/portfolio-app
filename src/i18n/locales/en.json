@@ -94,12 +94,12 @@
       "tag": "// react · nestjs · golang · python",
       "description": "Distributed climate monitoring system in real-time. Event-driven architecture with 4 languages, RabbitMQ and AI insights via Google Gemini."
     },
-    "coming-soon-1": {
-      "title": "Next project",
-      "tag": "// are coming",
-      "description": "Something new is being built. Stay tuned."
+    "fleet-intelligence": {
+      "title": "Fleet Intelligence",
+      "tag": "// react · typescript · node.js",
+      "description": "A real-time logistics and fleet management dashboard designed to monitor active trucks, manage shipment assignments, and streamline quick dispatch operations."
     },
-    "coming-soon-2": {
+    "coming-soon-1": {
       "title": "Next project",
       "tag": "// are coming",
       "description": "Something new is being built. Stay tuned."

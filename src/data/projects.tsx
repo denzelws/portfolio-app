@@ -216,13 +216,13 @@ export const projects: Project[] = [
     ArtComponent: TelemetryArt,
   },
   {
-    id: "coming-soon-1",
-    href: "https://github.com/denzelws",
-    ArtComponent: () => <ComingSoonArt label="in development" />,
-    comingSoon: true,
+    id: "fleet-intelligence",
+    href: "https://github.com/denzelws/transfer-app",
+    image: "/projects/transferapp.png",
+    ArtComponent: TelemetryArt,
   },
   {
-    id: "coming-soon-2",
+    id: "coming-soon-1",
     href: "https://github.com/denzelws",
     ArtComponent: () => <ComingSoonArt label="in development" />,
     comingSoon: true,
